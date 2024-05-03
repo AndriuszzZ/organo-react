@@ -7,6 +7,7 @@ function App() {
 
       <Banner />
       <Form />
+      
     </div>
   )
 }
