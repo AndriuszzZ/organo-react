@@ -1,3 +1,4 @@
+import Botao from '../Botao'
 import CampoTexto from '../CampoTexto'
 import ListaSuspensa from '../ListaSuspensa'
 import './Form.css'
@@ -14,15 +15,20 @@ const Form = () => {
         'Inovação e Gestão'
     ]
 
+    const saveCard = (event) => {
+        event.preventDefault()
+        console.log('Salvando card')
+    }
 
     return (
         <section className="form">
-            <form>
+            <form onSubmit={saveCard}>
                 <h2>Preencha os dados para criar o card do colaborador</h2>
-                <CampoTexto label="Nome" placeholder="Digite seu nome" />
-                <CampoTexto label="Cargo" placeholder="Digite seu gargo" />
+                <CampoTexto obrigatorio={true} label="Nome" placeholder="Digite seu nome" />
+                <CampoTexto obrigatorio={true} label="Cargo" placeholder="Digite seu gargo" />
                 <CampoTexto label="Imagem" placeholder="Digite o endereço da imagem" />
-                <ListaSuspensa label="Time" itens={times} />
+                <ListaSuspensa obrigatorio={true} label="Time" itens={times} />
+                <Botao>Criar Card</Botao>
             </form>
         </section>
     )
